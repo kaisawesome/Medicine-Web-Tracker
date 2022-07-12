@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    
+    <div class="medicines">
+        <h2>All Medicines</h2>
+        <% for(let item of medicines){%>
+        <div class="list">
+            <h4>Name: <%= item.drugName  %></h4><hr>
+            <p>Dosage: <%= item.dosage %></p><hr>
+            <p>Frequency: <%= item.frequency %> </p>
+            <a href="/home/delete/<%= item._id %>"><button id="delete" >Delete</button></a>
+        </div>
+        <% } %> 
+        <form action="/add-medicine">
+            <button id="btn">Add new Drug</button>
+        </form>
+
+    </div>
+    <script>
+        // const a=document.querySelector('#delete');
+        // a.addEventListener('click',()=>{
+        //     //delete item from database
+        //     const endpoint= `/${a.dataset.drug}`;
+        //     fetch(endpoint,{method: 'DELELTE'})
+        //         .then((result)=>{
+        //             console.log(result);
+        //         })
+        //         .catch((err)=>{
+        //             console.log(err);
+        //         })
+        // });
+    </script>
+</body>
+</html>
